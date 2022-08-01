@@ -1,0 +1,16 @@
+h1,
+h2,
+div,
+p {
+  font-family: 'Calibri';
+}
+
+.action {
+  margin-left: 20px;
+}
+
+.row {
+  padding: 0.5em;
+  margin-bottom: 20px;
+  background-color: cadetblue;
+}
