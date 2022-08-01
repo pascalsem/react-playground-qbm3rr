@@ -1,28 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './style.css';
-import { Product } from './Product';
-import ProductService from './ProductService';
-import ProductsTable from './ProductsTable.component';
-import SelectedProduct from './SelectedProduct.component';
 
 const App = () => {
-  const [products, setProducts] = useState([] as Product[]);
-  const [selectedProduct, setSelectedProduct] = useState('');
-  useEffect(() => {
-    new ProductService().fetch().then((products) => {
-      setProducts(products);
-    });
-  }, []);
-  useEffect(() => {
-    console.log(`Selected product = ${selectedProduct}`);
-  }, [selectedProduct]);
   return (
     <div>
       <h1>Catalog</h1>
       <h2>Available products</h2>
-      <ProductsTable products={products} onSelect={setSelectedProduct} />
+      <div>
+        <div className="row">
+          <span>Product #1 = pen (blue ink)</span>
+          <button className="action" value="1">
+            Select
+          </button>
+        </div>
+        <div className="row">
+          <span>Product #2 = paper (recycled)</span>
+          <button className="action" value="2">
+            Select
+          </button>
+        </div>
+        <div className="row">
+          <span>Product #3 = ruler (metric units)</span>
+          <button className="action" value="3">
+            Select
+          </button>
+        </div>
+      </div>
       <h2>Selected product</h2>
-      <SelectedProduct id={selectedProduct} />
+      <div>No product</div>
     </div>
   );
 };
